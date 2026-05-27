@@ -1,1 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAMIM X MOD’Z - iOS Webstore</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0b0c10;
+            color: #ffffff;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #1f2833, #0b0c10);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 255, 163, 0.1);
+            border: 1px solid #1f2833;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #00ffa3;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(0, 255, 163, 0.3);
+        }
+
+        header p {
+            color: #c5c6c7;
+            font-size: 1.1rem;
+        }
+
+        .search-container {
+            max-width: 500px;
+            margin: 0 auto 30px auto;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 30px;
+            border: 2px solid #1f2833;
+            background-color: #1f2833;
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .search-container input:focus {
+            border-color: #00ffa3;
+            box-shadow: 0 0 10px rgba(0, 255, 163, 0.2);
+        }
+
+        .store-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .app-card {
+            background-color: #151a23;
+            border-radius: 18px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border: 1px solid #1f2833;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .app-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            border-color: #00ffa3;
+        }
+
+        .app-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
+            object-fit: cover;
+            background-color: #1f2833;
+        }
+
+        .app-info {
+            flex-grow: 1;
+        }
+
+        .app-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .app-version {
+            font-size: 0.85rem;
+            color: #858585;
+            margin-bottom: 10px;
+        }
+
+        .btn-install {
+            display: inline-block;
+            background-color: #00ffa3;
+            color: #000;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+            text-align: center;
+        }
+
+        .btn-install:hover {
+            background-color: #00b371;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 5px;
+            padding: 30px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>TAMIM X MOD’Z</h1>
+        <p>Premium iOS Apps & Modded IPA Store</p>
+    </header>
+
+    <div class="search-container">
+        <input type="text" id="searchBar" onkeyup="searchApps()" placeholder="Search your favorite apps...">
+    </div>
+
+    <main class="store-container" id="appStore">
+        
+        <!-- App 1 -->
+        <div class="app-card">
+            <img src="https://placehold.co/150" alt="App Icon" class="app-icon">
+            <div class="app-info">
+                <div class="app-name">TikTok Mod</div>
+                <div class="app-version">v32.0.0 • Premium</div>
+                <a href="itms-services://?action=download-manifest&url=https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO/plist/tiktok.plist" class="btn-install">GET</a>
+            </div>
+        </div>
+
+        <!-- App 2 -->
+        <div class="app-card">
+            <img src="https://placehold.co/150" alt="App Icon" class="app-icon">
+            <div class="app-info">
+                <div class="app-name">Spotify++</div>
+                <div class="app-version">v8.8.0 • No Ads</div>
+                <a href="itms-services://?action=download-manifest&url=https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO/plist/spotify.plist" class="btn-install">GET</a>
+            </div>
+        </div>
+
+        <!-- App 3 -->
+        <div class="app-card">
+            <img src="https://placehold.co/150" alt="App Icon" class="app-icon">
+            <div class="app-info">
+                <div class="app-name">Scarlet</div>
+                <div class="app-version">v1.0 • Sideload</div>
+                <a href="itms-services://?action=download-manifest&url=https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO/plist/scarlet.plist" class="btn-install">GET</a>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 TAMIM X MOD’Z. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function searchApps() {
+            let input = document.getElementById('searchBar').value.toLowerCase();
+            let appCards = document.getElementsByClassName('app-card');
+            
+            for (let i = 0; i < appCards.length; i++) {
+                let appName = appCards[i].getElementsByClassName('app-name')[0].innerText;
+                if (appName.toLowerCase().includes(input)) {
+                    appCards[i].style.display = "flex";
+                } else {
+                    appCards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
 
