@@ -27,6 +27,134 @@
             display: flex;
             flex-direction: column;
             overflow-x: hidden;
+
+            <!-- নিচের কোডটুকু আপনার আগের ফাইলের বডির (<body>) ভেতর যেকোনো জায়গায় বসাতে পারেন -->
+
+<div class="store-container">
+    
+    <!-- ১. আইওএস অ্যাপস পেজ/সেকশন -->
+    <div id="ios-page" class="os-page active">
+        <!-- এখানে আপনার সব iOS অ্যাপের কার্ড থাকবে -->
+        <div class="app-card">
+            <div class="app-icon ios-icon"></div>
+            <div class="app-details">
+                <h3 class="app-title">Video Star (iOS)</h3>
+                <p class="app-price">Price: 500 BDT</p>
+            </div>
+            <button class="premium-btn">GET</button>
+        </div>
+    </div>
+
+    <!-- ২. অ্যান্ড্রয়েড অ্যাপস পেজ/সেকশন -->
+    <div id="android-page" class="os-page">
+        <!-- এখানে আপনার সব Android অ্যাপের কার্ড থাকবে -->
+        <div class="app-card">
+            <div class="app-icon android-icon"></div>
+            <div class="app-details">
+                <h3 class="app-title">Node Video (Android)</h3>
+                <p class="app-price">Price: 250 BDT</p>
+            </div>
+            <button class="premium-btn">GET</button>
+        </div>
+    </div>
+
+    <!-- ৩. বটম প্রিমিয়াম নেভিগেশন বার -->
+    <div class="bottom-nav">
+        <div class="nav-tab active" onclick="switchOS('ios')">
+            <span>🍏 iOS</span>
+        </div>
+        <div class="nav-tab" onclick="switchOS('android')">
+            <span>🤖 Android</span>
+        </div>
+    </div>
+
+</div>
+
+<!-- 🎨 প্রিমিয়াম বটম বার ও পেজ পরিবর্তনের CSS -->
+<style>
+    /* পেজগুলোর বেসিক স্টাইল এবং হাইড/শো লজিক */
+    .os-page {
+        display: none; /* প্রথমে সব পেজ হাইড থাকবে */
+        animation: fadeIn 0.4s ease;
+    }
+    .os-page.active {
+        display: block; /* শুধুমাত্র একটিভ পেজটি দেখাবে */
+    }
+
+    /* অ্যাপ আইকন কালার পার্থক্য করার জন্য ডেমো */
+    .ios-icon { background: linear-gradient(135deg, #ff2a74, #ff758c); }
+    .android-icon { background: linear-gradient(135deg, #a4c639, #00e5ff); }
+
+    /* প্রিমিয়াম গ্লাস-মর্ফিজম বটম নেভিগেশন বার */
+    .bottom-nav {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 400px;
+        background-color: rgba(11, 21, 31, 0.85);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 30px;
+        padding: 6px;
+        display: flex;
+        justify-content: space-between;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+        z-index: 1000;
+    }
+
+    /* বটম বারের প্রতিটি অপশন বা ট্যাব */
+    .nav-tab {
+        flex: 1;
+        text-align: center;
+        padding: 12px 0;
+        color: #8fa0b0;
+        font-weight: 700;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+    }
+
+    /* একটিভ (সিলেক্টেড) ট্যাবের নিয়ন স্টাইল */
+    .nav-tab.active {
+        background-color: #122232;
+        color: #00e5ff;
+        border: 1px solid rgba(0, 229, 255, 0.3);
+        box-shadow: inset 0 0 10px rgba(0, 229, 255, 0.1);
+    }
+
+    /* পেজ পরিবর্তনের সময় স্মুথ অ্যানিমেশন */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<!-- ⚡ পেজ সোয়াপ করার জন্য জাভাস্ক্রিপ্ট (JavaScript) লজিক -->
+<script>
+    function switchOS(osType) {
+        // ১. আগে সব পেজ থেকে একটিভ ক্লাস সরিয়ে ফেলা
+        document.getElementById('ios-page').classList.remove('active');
+        document.getElementById('android-page').classList.remove('active');
+        
+        // ২. বটম বারের সব ট্যাব থেকে একটিভ ক্লাস সরিয়ে ফেলা
+        const tabs = document.querySelectorAll('.nav-tab');
+        tabs.forEach(tab => tab.classList.remove('active'));
+
+        // ৩. ক্লিক করা ওএস অনুযায়ী নির্দিষ্ট পেজ এবং ট্যাব একটিভ করা
+        if(osType === 'ios') {
+            document.getElementById('ios-page').classList.add('active');
+            tabs[0].classList.add('active');
+        } else if(osType === 'android') {
+            document.getElementById('android-page').classList.add('active');
+            tabs[1].classList.add('active');
+        }
+    }
+</script>
+
+
         }
 
         /* Glassmorphism Header */
